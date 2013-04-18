@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/Joshua Hatfield/Documents/Eclipse/libraries/bukkit-1.3.1-R2.0.jar">
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="lib" path="/home/tssge/Java/res/craftbukkit-1.4.7-R1.0.jar">
 		<attributes>
 			<attribute name="javadoc_location" value="http://jd.bukkit.org/apidocs/"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Joshua Hatfield/Documents/Eclipse/libraries/Vault.jar">
+	<classpathentry kind="lib" path="/home/tssge/Java/res/Vault-1.2.25-SNAPSHOT.jar">
 		<attributes>
 			<attribute name="javadoc_location" value="http://mythcraft.dyndns.org/javadoc/vault/"/>
 		</attributes>
