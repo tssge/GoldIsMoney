@@ -3,6 +3,7 @@ package com.flobi.GoldIsMoney2;
 import java.io.Serializable;
 import java.util.Map.Entry;
 
+import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
@@ -63,6 +64,11 @@ public class PlayerAccount implements Serializable {
 		// If the player's not online, don't sync.
 		if (player == null) return;
 		if (!player.isOnline()) return;
+		
+		// Experimental: if the player is in creative, don't sync
+		if (player.getGameMode() == GameMode.CREATIVE && !GoldIsMoney.isCreativeAllowed()) {
+			return;
+		}
 		
 		// If the inventory changed since last sync, adjust main balance.
 		long startInventoryBalance = getInventoryBalance(player.getInventory());

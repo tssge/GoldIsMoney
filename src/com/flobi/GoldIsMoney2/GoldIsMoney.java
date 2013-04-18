@@ -79,6 +79,9 @@ public class GoldIsMoney extends JavaPlugin {
     public static String currencyNamePlural() {
     	return GiMUtility.config.getString("name-plural");
     }
+    public static boolean isCreativeAllowed() {
+    	return GiMUtility.config.getBoolean("allow-creative");
+    }
     public static boolean hasAccount(String playerName) {
     	// NOTE: Do not call getPlayerAccount in here, it would cause an infinite loop.
     	if (GiMUtility.config.getBoolean("autocreate-accounts")) {
