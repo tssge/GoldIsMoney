@@ -50,7 +50,7 @@ public class GoldIsMoney extends JavaPlugin {
     
 
     
-    // Vault compatible methods
+ // Vault compatible methods
     public static double getBalance(String playerName) {
     	if (!hasAccount(playerName)) return 0D;
 		return GiMMoney.longToDouble(getPlayerAccount(playerName).getBalance());
@@ -67,8 +67,8 @@ public class GoldIsMoney extends JavaPlugin {
     	return getPlayerAccount(playerName).withdraw(GiMMoney.doubleToLong(amount));
     }
     public static boolean depositPlayer(String playerName, double amount) {
-    	if (!hasAccount(playerName)) return false;
-    	return getPlayerAccount(playerName).deposit(GiMMoney.doubleToLong(amount));
+    	if (!hasAccount(playerName.toLowerCase())) return false;
+    	return getPlayerAccount(playerName.toLowerCase()).deposit(GiMMoney.doubleToLong(amount));
     }
     public static String format(double amount) {
     	return GiMMoney.format(amount);
@@ -84,15 +84,15 @@ public class GoldIsMoney extends JavaPlugin {
     	if (GiMUtility.config.getBoolean("autocreate-accounts")) {
     		return createPlayerAccount(playerName);
     	}
-    	return playerAccounts.containsKey(playerName);
+    	return playerAccounts.containsKey(playerName.toLowerCase());
     }
     public static boolean createPlayerAccount(String playerName) {
     	// Don't use hasAccount here, will cause infinite loop.
-    	if (playerAccounts.containsKey(playerName)) return true;
+    	if (playerAccounts.containsKey(playerName.toLowerCase())) return true;
     	if (!GiMUtility.config.getBoolean("allow-fake-players") && GiMUtility.plugin.getServer().getPlayer(playerName) == null) return false;
     	
-    	playerAccounts.put(playerName, new PlayerAccount(playerName));
-    	return hasAccount(playerName);
+    	playerAccounts.put(playerName.toLowerCase(), new PlayerAccount(playerName));
+    	return hasAccount(playerName.toLowerCase());
     }
     public static boolean hasBankSupport() {
     	return GiMUtility.config.getBoolean("allow-banks");
@@ -169,7 +169,7 @@ public class GoldIsMoney extends JavaPlugin {
     }
     public static PlayerAccount getPlayerAccount(String playerName) {
     	if (!hasAccount(playerName)) return null;
-    	return playerAccounts.get(playerName);
+    	return playerAccounts.get(playerName.toLowerCase());
     }
     
 }
